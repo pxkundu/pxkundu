@@ -1,0 +1,31 @@
+# Jekyll build output
+
+\_site/ .sass-cache/ .jekyll-cache/ .jekyll-metadata
+
+# Ruby dependencies
+
+vendor/ Gemfile.lock
+
+# Node.js dependencies
+
+node_modules/ package-lock.json
+
+# Tailwind CSS generated output (keep assets/css/output.css in version control for GitHub Pages)
+
+# Note: assets/css/output.css is not ignored to ensure GitHub Pages serves the compiled CSS
+
+# Temporary files
+
+\*.swp \*.swo \*\~
+
+# macOS files
+
+.DS_Store
+
+# Logs and temporary files
+
+\*.log tmp/
+
+# Editor and IDE files
+
+.idea/ .vscode/ \*.sublime-project \*.sublime-workspace

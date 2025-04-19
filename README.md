@@ -1,128 +1,85 @@
-# 👋 Hello World, I'm Partha Sarathi Kundu! (@pxkundu)
+# Partha Sarathi Kundu GitHub Pages
 
-🚀 **DevOps Lead | Cloud Engineer | DevSecOps Advocate | AWS Ninja**  
+This repository hosts my personal GitHub Pages site, built with Jekyll, showcasing my professional profile as a DevOps Lead and Cloud Engineer. The site mirrors my resume, highlighting my skills, certifications, experience, and education in a minimalist design.
 
-🔗 [GitHub](https://github.com/pxkundu) | 🏅 [Credly Certifications](https://www.credly.com/users/partha-sarathi-kundu)
+## Project Structure
 
----
+```
+├── _config.yml           # Jekyll configuration file
+├── index.html            # Main homepage with resume content
+├── _layouts/             # Jekyll layout templates
+│   └── default.html      # Default layout for pages
+├── assets/               # Static assets (CSS, images, etc.)
+│   └── css/              # Tailwind CSS output
+├── Gemfile               # Ruby dependencies for Jekyll
+└── README.md             # This file
+```
 
-## 👀 I’m interested in:
-- ☁️ Cloud-native architecture and automation
-- 🛡️ Secure DevOps & DevSecOps pipelines
-- 🔄 Event-driven & serverless architecture
-- 🧠 AI/ML on AWS (SageMaker, Bedrock, LangChain)
-- 🛠️ Open-source contributions, especially in **AWS** & **DevOps**
+## Prerequisites
 
----
+To set up and run this Jekyll site locally, ensure you have the following installed:
 
-## 🌱 Currently Exploring:
-- 🤖 Generative AI in cloud workflows  
-- ☸️ Advanced Kubernetes design with GitOps and autoscaling  
-- 🧩 Plugin development in **OpenSearch**  
-- 🛡️ Enhanced DevSecOps practices and threat modeling automation
+- **Ruby** (version 3.0 or higher)
+- **Bundler** (`gem install bundler`)
+- **Git** for version control
+- **Node.js** (for Tailwind CSS processing, optional for local development)
 
----
+## Setup Instructions
 
-## 💞️ Let’s Collaborate On:
-- 🚀 Open-source AWS tools & frameworks  
-- 🔐 Security-first DevOps practices  
-- 📈 Cloud data pipelines and streaming systems  
-- 📚 Community events, tech blogging, and workshops
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/pxkundu/pxkundu.github.io.git
+   cd pxkundu.github.io
+   ```
 
----
+2. **Install Dependencies**
+   Install Ruby gems using Bundler:
+   ```bash
+   bundle install
+   ```
 
-## 😄 Pronouns:
-**He / Him / His**
+3. **Set Up Tailwind CSS (Optional for Local Styling)**
+   If you want to modify the Tailwind CSS styles:
+   ```bash
+   npm install -D tailwindcss
+   npx tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch
+   ```
 
----
+4. **Run the Jekyll Server**
+   Start the local Jekyll server:
+   ```bash
+   bundle exec jekyll serve
+   ```
+   The site will be available at `http://localhost:4000`.
 
-## ⚡ Fun Fact:
-I automate **everything**... even my morning coffee alerts ☕ with **AWS IoT & Lambda** 😄  
-Also: I love turning complex cloud workflows into scalable, secure, and elegant blueprints.
+5. **Deploy to GitHub Pages**
+   - Push changes to the `main` branch:
+     ```bash
+     git add .
+     git commit -m "Update site content"
+     git push origin main
+     ```
+   - Ensure GitHub Pages is enabled in the repository settings under `Settings > Pages`, set to deploy from the `main` branch.
 
----
+## Customization
 
-# 🧠 Expertise & Tech Stack
+- **Content**: Edit `index.html` to update resume details or add new sections.
+- **Styling**: Modify Tailwind classes in `index.html` or update `./assets/css/input.css` for custom styles.
+- **Layout**: Adjust `_layouts/default.html` for changes to the site-wide template.
 
-### ☁️ Cloud Platforms
-![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazon-aws&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white)
+## Technologies Used
 
-- **AWS Certified Professional** with 5+ years of deep experience
-- Lambda, S3, API Gateway, Cognito, CloudFormation, CDK, Glue, Redshift, SageMaker, EKS, Fargate, IAM, KMS
-- Azure DevOps, AKS, Azure Data Factory, CosmosDB
+- **Jekyll**: Static site generator for GitHub Pages
+- **Tailwind CSS**: Utility-first CSS framework for minimalist styling
+- **HTML5**: Structure and content
+- **GitHub Pages**: Hosting and deployment
 
-### 🔧 DevOps & IaC
-- **IaC**: Terraform, AWS CDK, CloudFormation  
-- **CI/CD**: Jenkins, GitHub Actions, AWS CodePipeline, GitLab CI  
-- **Containers & Orchestration**: Docker, Kubernetes (EKS/AKS), AWS Fargate  
-- **Monitoring & Logging**: CloudWatch, Prometheus, Grafana, Splunk
+## Troubleshooting
 
-### 🛡️ Security & DevSecOps
-- DevSecOps pipelines with GuardDuty, Security Hub, WAF, IAM, KMS  
-- Compliance expertise in HIPAA, GDPR, PCI-DSS  
-- Vulnerability scanning, secure coding practices, threat modeling
+- **Jekyll Errors**: Ensure Ruby and Bundler are correctly installed. Run `bundle update` to refresh dependencies.
+- **GitHub Pages Not Updating**: Verify the branch and path settings in GitHub Pages configuration. Clear the GitHub Pages cache if needed.
+- **CSS Issues**: Ensure Tailwind CSS is compiled (`npx tailwindcss build`) and the output CSS is correctly linked.
 
-### 📊 Data & Analytics
-- **Big Data/ETL**: AWS Glue, EMR, Kinesis, Kafka  
-- **Databases**: DynamoDB, PostgreSQL, MongoDB, Firestore, MySQL  
-- **BI Tools**: Tableau, Power BI, Grafana
+## License
 
-### 🤖 AI/ML
-- ML Ops with AWS SageMaker, Glue ML, TensorFlow, PyTorch  
-- Data Science with Pandas, NumPy, Scikit-learn
-
-### 💻 Programming & Scripting
-- **Languages**: Python 🐍, Bash 🐚, Java ☕, JavaScript (ES6+), C#, R, PHP  
-- **Automation & Testing**: Selenium, Cypress, PyTest, UIPath
-
----
-
-## 🌟 Community Involvement
-
-### 📣 AWS Community Builder – Serverless (2020)
-Recognized for sharing knowledge through workshops, blogs, and hands-on content.  
-[🔗 AWS Community Profile](https://www.credly.com/users/partha-sarathi-kundu)
-
-### 👨‍🏫 Founder & Lead – AWS User Group Wichita (2023)
-Built and nurtured a thriving community of AWS enthusiasts.  
-Led local events, webinars, and study jams.
-
-### 🤖 UIPath Community Organizer – Denver (2024)
-Driving RPA adoption and community growth through open meetups and technical events.
-
-### 💻 GitHub Open Source Contributor
-- 🧠 Maintainer of WMS/WCS skeleton repo  
-- 🤝 Frequent contributor to **OpenSearch**, AWS SAM, DevOps boilerplates  
-- 📢 Advocate for clean code, cloud security, and observability best practices
-
----
-
-## 🏅 Certifications
-| Certification | Badge |
-|---------------|-------|
-| 🏗️ AWS Certified Solutions Architect – Associate | ✅ |
-| 🧠 AWS Certified Machine Learning – Specialty | ✅ |
-| 📊 AWS Certified Data Engineer Associate | ✅ |
-| ⚙️ UIPath RPA Developer Certified | ✅ |
-
-👉 Full badge collection: [Credly](https://www.credly.com/users/partha-sarathi-kundu)
-
----
-
-## 📊 GitHub Stats & Activity
-
-![Partha's GitHub stats](https://github-readme-stats.vercel.app/api?username=pxkundu&show_icons=true&theme=gruvbox)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=pxkundu&layout=compact&theme=gruvbox)
-
----
-
-📌 *“Empowering innovation through secure automation and cloud-native transformation.”*
-
-🌈 Let’s connect, collaborate, and build something impactful!  
-🧭 Always open to opportunities, mentoring, and cool tech talk.
-
-<!---
-pxkundu/pxkundu is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
