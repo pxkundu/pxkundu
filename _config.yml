@@ -2,7 +2,7 @@ title: Partha Sarathi Kundu
 description: Personal portfolio of Partha Sarathi Kundu, DevOps Lead and Cloud Engineer
 theme: minima
 url: "https://pxkundu.github.io"
-baseurl: ""
+baseurl: "/pxkundu"
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
