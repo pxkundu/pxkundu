@@ -32,14 +32,55 @@
   <title>Partha Sarathi Kundu - DevOps Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    :root {
+      --bg-color: #fafbfc;
+      --bg-gradient-start: #fafbfc;
+      --bg-gradient-end: #e6f0fa;
+      --text-color: #6a737d;
+      --heading-color: #24292e;
+      --border-color: #d1d5da;
+      --divider-color: #e1e4e8;
+      --icon-bg: rgba(255, 255, 255, 0.2);
+      --icon-border: rgba(255, 255, 255, 0.3);
+      --glow-color: #0366d6;
+      --accent-color: #28a745;
+    }
+    [data-theme="dark"] {
+      --bg-color: #1a1d23;
+      --bg-gradient-start: #1a1d23;
+      --bg-gradient-end: #2a2f3b;
+      --text-color: #d1d5da;
+      --heading-color: #e6e8eb;
+      --border-color: #2f363d;
+      --divider-color: #2f363d;
+      --icon-bg: rgba(0, 0, 0, 0.2);
+      --icon-border: rgba(255, 255, 255, 0.1);
+      --glow-color: #58a6ff;
+      --accent-color: #34d058;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1a1d23;
+        --bg-gradient-start: #1a1d23;
+        --bg-gradient-end: #2a2f3b;
+        --text-color: #d1d5da;
+        --heading-color: #e6e8eb;
+        --border-color: #2f363d;
+        --divider-color: #2f363d;
+        --icon-bg: rgba(0, 0, 0, 0.2);
+        --icon-border: rgba(255, 255, 255, 0.1);
+        --glow-color: #58a6ff;
+        --accent-color: #34d058;
+      }
+    }
     body {
-      background: linear-gradient(45deg, #fafbfc, #e6f0fa, #fafbfc);
+      background: linear-gradient(45deg, var(--bg-gradient-start), var(--bg-gradient-end), var(--bg-gradient-start));
       background-size: 200% 200%;
       animation: gradientShift 15s ease infinite;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
-      color: #6a737d;
+      color: var(--text-color);
       overflow-x: hidden;
       position: relative;
     }
@@ -60,13 +101,30 @@
     .container {
       max-width: 800px;
       margin: 40px auto;
-      border: 1px solid #d1d5da;
+      border: 1px solid var(--border-color);
       padding: 40px;
       text-align: center;
       position: relative;
       z-index: 1;
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px var(--glow-color);
     }
     header {
       margin-bottom: 40px;
@@ -96,6 +154,15 @@
       height: 20px;
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23e1e4e8"></path></svg>') no-repeat center bottom;
       background-size: 100% 100%;
+      filter: brightness(0.5) contrast(1.2);
+    }
+    [data-theme="dark"] section:not(:last-of-type)::after {
+      filter: brightness(0.3) contrast(1.5);
+    }
+    @media (prefers-color-scheme: dark) {
+      section:not(:last-of-type)::after {
+        filter: brightness(0.3) contrast(1.5);
+      }
     }
     footer {
       padding-top: 20px;
@@ -103,7 +170,7 @@
     }
     h1 {
       font-size: 70px;
-      background: linear-gradient(to right, #24292e, #0366d6);
+      background: linear-gradient(to right, var(--heading-color), var(--glow-color));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
@@ -112,11 +179,17 @@
     }
     h2 {
       font-size: 24px;
-      color: #24292e;
+      color: var(--heading-color);
       margin-bottom: 16px;
       position: relative;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       transition: transform 0.3s ease;
+    }
+    h2 i {
+      margin-right: 10px;
+      vertical-align: middle;
+      line-height: 1;
     }
     h2:hover {
       transform: rotateX(10deg) rotateY(10deg);
@@ -127,24 +200,24 @@
       position: absolute;
       width: 0;
       height: 2px;
-      background: linear-gradient(to right, #0366d6, #28a745);
+      background: linear-gradient(to right, var(--glow-color), var(--accent-color));
       bottom: -4px;
       left: 50%;
       transform: translateX(-50%);
       transition: width 0.3s ease;
-      box-shadow: 0 0 5px #0366d6;
+      box-shadow: 0 0 5px var(--glow-color);
       animation: glow 2s ease infinite;
     }
     h2:hover::after {
       width: 50%;
     }
     @keyframes glow {
-      0%, 100% { box-shadow: 0 0 5px #0366d6; }
-      50% { box-shadow: 0 0 15px #0366d6; }
+      0%, 100% { box-shadow: 0 0 5px var(--glow-color); }
+      50% { box-shadow: 0 0 15px var(--glow-color); }
     }
     p, li, span {
       font-size: 16px;
-      color: #6a737d;
+      color: var(--text-color);
       line-height: 1.5;
     }
     ul {
@@ -157,6 +230,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    ul li i {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      margin-right: 10px;
+      vertical-align: middle;
     }
     .grid {
       display: grid;
@@ -174,13 +254,19 @@
     .grid div {
       text-align: center;
     }
+    .github-stats {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
     img {
       max-width: 100%;
       border-radius: 8px;
-      margin: 10px 0;
+      margin: 0;
       animation: float 3s ease-in-out infinite;
       border: 2px solid transparent;
-      background: linear-gradient(45deg, #0366d6, #28a745) border-box;
+      background: linear-gradient(45deg, var(--glow-color), var(--accent-color)) border-box;
       box-shadow: 0 0 10px rgba(3, 102, 214, 0.3);
       transition: transform 0.3s ease;
     }
@@ -192,24 +278,25 @@
       50% { transform: translateY(-10px); }
     }
     i {
-      color: #6a737d;
-      margin-right: 8px;
+      color: var(--text-color);
       width: 20px;
+      height: 20px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--icon-bg);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid var(--icon-border);
       border-radius: 50%;
-      padding: 6px;
+      padding: 0;
+      line-height: 20px;
       transition: all 0.3s ease;
     }
     i:hover {
       transform: scale(1.2);
-      box-shadow: 0 0 10px rgba(3, 102, 214, 0.5);
-      background: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 10px var(--glow-color);
+      background: var(--icon-bg);
     }
     .fa-check-circle {
-      color: #28a745;
+      color: var(--accent-color);
     }
     .italic {
       font-style: italic;
@@ -220,7 +307,7 @@
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
-      color: #6a737d;
+      color: var(--text-color);
       animation: fade 2s ease-in-out infinite;
     }
     @keyframes fade {
@@ -266,7 +353,7 @@
       content: '';
       width: 10px;
       height: 10px;
-      background: #0366d6;
+      background: var(--glow-color);
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -277,13 +364,16 @@
       background: rgba(40, 167, 69, 0.3);
     }
     section:hover .custom-cursor::after {
-      background: #28a745;
+      background: var(--accent-color);
     }
   </style>
 </head>
 <body>
   <div class="particles" id="particles"></div>
   <div class="custom-cursor" id="cursor"></div>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="fa-solid fa-moon"></i>
+  </button>
   <div class="container">
     <!-- Hero Section -->
     <header>
@@ -297,7 +387,7 @@
 
     <!-- About Section -->
     <section style="--section-index: 1;">
-      <h2><i class="fa-solid fa-user"></i>About Me</h2>
+      <h2><i class="fa-solid fa-user"></i> About Me</h2>
       <p>
         Certified Cloud Professional with a decade of IT experience, including years of specialized experience in AWS. I’m passionate about crafting cloud-native architectures, securing DevOps pipelines, and building serverless solutions. From automating morning coffee alerts with AWS IoT & Lambda to designing scalable cloud workflows, I strive to empower innovation through secure, elegant automation.
       </p>
@@ -305,7 +395,7 @@
 
     <!-- Interests Section -->
     <section style="--section-index: 2;">
-      <h2><i class="fa-solid fa-lightbulb"></i>Interests</h2>
+      <h2><i class="fa-solid fa-lightbulb"></i> Interests</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-cloud fa-fw"></i>Cloud-native architecture and automation</li>
         <li><i class="fa-solid fa-shield-alt fa-fw"></i>Secure DevOps & DevSecOps pipelines</li>
@@ -317,7 +407,7 @@
 
     <!-- Currently Exploring Section -->
     <section style="--section-index: 3;">
-      <h2><i class="fa-solid fa-compass"></i>Currently Exploring</h2>
+      <h2><i class="fa-solid fa-compass"></i> Currently Exploring</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-robot fa-fw"></i>Generative AI in cloud workflows</li>
         <li><i class="fa-solid fa-cubes fa-fw"></i>Advanced Kubernetes design with GitOps and autoscaling</li>
@@ -328,7 +418,7 @@
 
     <!-- Tech Stack Section -->
     <section style="--section-index: 4;">
-      <h2><i class="fa-solid fa-tools"></i>Expertise & Tech Stack</h2>
+      <h2><i class="fa-solid fa-tools"></i> Expertise & Tech Stack</h2>
       <div class="grid grid-3">
         <div>
           <h3><i class="fa-solid fa-cloud fa-fw"></i>Cloud Platforms</h3>
@@ -359,7 +449,7 @@
 
     <!-- Community Involvement Section -->
     <section style="--section-index: 5;">
-      <h2><i class="fa-solid fa-users"></i>Community Involvement</h2>
+      <h2><i class="fa-solid fa-users"></i> Community Involvement</h2>
       <ul>
         <li>
           <i class="fa-solid fa-comment-dots fa-fw"></i>
@@ -382,7 +472,7 @@
 
     <!-- Certifications Section -->
     <section style="--section-index: 6;">
-      <h2><i class="fa-solid fa-certificate"></i>Certifications</h2>
+      <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-check-circle fa-fw"></i>AWS Certified Solutions Architect – Associate</li>
         <li><i class="fa-solid fa-check-circle fa-fw"></i>AWS Certified Machine Learning – Specialty</li>
@@ -394,7 +484,7 @@
     <!-- GitHub Stats Section -->
     <section style="--section-index: 7;">
       <h2><i class="fa-solid fa-chart-line"></i>GitHub Stats</h2>
-      <div>
+      <div class="github-stats">
         <img src="https://github-readme-stats.vercel.app/api?username=pxkundu&show_icons=true&theme=gruvbox" alt="Partha's GitHub Stats">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pxkundu&layout=compact&theme=gruvbox" alt="Top Languages">
       </div>
@@ -463,6 +553,29 @@
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
     });
+
+    // Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const toggleIcon = document.querySelector('.theme-toggle i');
+      if (currentTheme === 'dark') {
+        html.setAttribute('data-theme', 'light');
+        toggleIcon.classList.remove('fa-sun');
+        toggleIcon.classList.add('fa-moon');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+      }
+    }
+
+    // Initial Theme Check
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.querySelector('.theme-toggle i').classList.remove('fa-moon');
+      document.querySelector('.theme-toggle i').classList.add('fa-sun');
+    }
   </script>
 </body>
 </html>
