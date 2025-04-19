@@ -25,17 +25,34 @@ title: Partha Sarathi Kundu - DevOps Engineer
       padding: 40px;
       text-align: center;
     }
-    section, header, footer {
+    header {
+      margin-bottom: 40px;
+      position: relative;
+    }
+    section {
       margin-bottom: 40px;
       padding-bottom: 20px;
-      border-bottom: 1px solid #d1d5da;
+      position: relative;
     }
-    section:last-of-type, footer {
-      border-bottom: none;
+    section:not(:last-of-type)::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23e1e4e8"></path></svg>') no-repeat center bottom;
+      background-size: 100% 100%;
+    }
+    footer {
+      padding-top: 20px;
     }
     h1 {
-      font-size: 80px;
-      color: #24292e;
+      font-size: 70px;
+      background: linear-gradient(to right, #24292e, #0366d6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin: 0;
       line-height: 1;
     }
@@ -43,6 +60,22 @@ title: Partha Sarathi Kundu - DevOps Engineer
       font-size: 24px;
       color: #24292e;
       margin-bottom: 16px;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #0366d6;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+    h2:hover::after {
+      width: 50%;
     }
     p, li, span {
       font-size: 16px;
@@ -80,6 +113,11 @@ title: Partha Sarathi Kundu - DevOps Engineer
       max-width: 100%;
       border-radius: 8px;
       margin: 10px 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     i {
       color: #6a737d;
@@ -87,11 +125,31 @@ title: Partha Sarathi Kundu - DevOps Engineer
       width: 20px;
       text-align: center;
     }
+    i:hover {
+      animation: pulse 0.6s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
     .fa-check-circle {
       color: #28a745;
     }
     .italic {
       font-style: italic;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #6a737d;
+      animation: fade 2s ease-in-out infinite;
+    }
+    @keyframes fade {
+      0%, 100% { opacity: 0.3; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(5px); }
     }
   </style>
 </head>
@@ -102,19 +160,22 @@ title: Partha Sarathi Kundu - DevOps Engineer
       <h1>Partha Sarathi Kundu</h1>
       <p>DevOps Lead | Cloud Engineer | DevSecOps Advocate</p>
       <p class="italic">He/Him/His</p>
+      <div class="scroll-indicator">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
     </header>
 
     <!-- About Section -->
     <section>
-      <h2><i class="fa-solid fa-user"></i> About Me</h2>
+      <h2><i class="fa-solid fa-user"></i>About Me</h2>
       <p>
-        Certified Cloud Professional with a decade of IT experience, including years specializing in AWS. I’m passionate about crafting cloud-native architectures, securing DevOps pipelines, and building serverless solutions. From automating morning coffee alerts with AWS IoT & Lambda to designing scalable cloud workflows, I strive to empower innovation through secure, elegant automation.
+        Certified Cloud Professional with a decade of IT experience, including years of specialized experience in AWS. I’m passionate about crafting cloud-native architectures, securing DevOps pipelines, and building serverless solutions. From automating morning coffee alerts with AWS IoT & Lambda to designing scalable cloud workflows, I strive to empower innovation through secure, elegant automation.
       </p>
     </section>
 
     <!-- Interests Section -->
     <section>
-      <h2><i class="fa-solid fa-lightbulb"></i> Interests</h2>
+      <h2><i class="fa-solid fa-lightbulb"></i>Interests</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-cloud fa-fw"></i>Cloud-native architecture and automation</li>
         <li><i class="fa-solid fa-shield-alt fa-fw"></i>Secure DevOps & DevSecOps pipelines</li>
@@ -126,7 +187,7 @@ title: Partha Sarathi Kundu - DevOps Engineer
 
     <!-- Currently Exploring Section -->
     <section>
-      <h2><i class="fa-solid fa-compass"></i> Currently Exploring</h2>
+      <h2><i class="fa-solid fa-compass"></i>Currently Exploring</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-robot fa-fw"></i>Generative AI in cloud workflows</li>
         <li><i class="fa-solid fa-cubes fa-fw"></i>Advanced Kubernetes design with GitOps and autoscaling</li>
@@ -137,7 +198,7 @@ title: Partha Sarathi Kundu - DevOps Engineer
 
     <!-- Tech Stack Section -->
     <section>
-      <h2><i class="fa-solid fa-tools"></i> Expertise & Tech Stack</h2>
+      <h2><i class="fa-solid fa-tools"></i>Expertise & Tech Stack</h2>
       <div class="grid grid-3">
         <div>
           <h3><i class="fa-solid fa-cloud fa-fw"></i>Cloud Platforms</h3>
@@ -168,7 +229,7 @@ title: Partha Sarathi Kundu - DevOps Engineer
 
     <!-- Community Involvement Section -->
     <section>
-      <h2><i class="fa-solid fa-users"></i> Community Involvement</h2>
+      <h2><i class="fa-solid fa-users"></i>Community Involvement</h2>
       <ul>
         <li>
           <i class="fa-solid fa-comment-dots fa-fw"></i>
@@ -191,7 +252,7 @@ title: Partha Sarathi Kundu - DevOps Engineer
 
     <!-- Certifications Section -->
     <section>
-      <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+      <h2><i class="fa-solid fa-certificate"></i>Certifications</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-check-circle fa-fw"></i>AWS Certified Solutions Architect – Associate</li>
         <li><i class="fa-solid fa-check-circle fa-fw"></i>AWS Certified Machine Learning – Specialty</li>
@@ -202,7 +263,7 @@ title: Partha Sarathi Kundu - DevOps Engineer
 
     <!-- GitHub Stats Section -->
     <section>
-      <h2><i class="fa-solid fa-chart-line"></i> GitHub Stats</h2>
+      <h2><i class="fa-solid fa-chart-line"></i>GitHub Stats</h2>
       <div>
         <img src="https://github-readme-stats.vercel.app/api?username=pxkundu&show_icons=true&theme=gruvbox" alt="Partha's GitHub Stats">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pxkundu&layout=compact&theme=gruvbox" alt="Top Languages">
