@@ -33,11 +33,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
-      background-color: #fafbfc;
+      background: linear-gradient(45deg, #fafbfc, #e6f0fa, #fafbfc);
+      background-size: 200% 200%;
+      animation: gradientShift 15s ease infinite;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
       color: #6a737d;
+      overflow-x: hidden;
+      position: relative;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
     .container {
       max-width: 800px;
@@ -45,15 +63,28 @@
       border: 1px solid #d1d5da;
       padding: 40px;
       text-align: center;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
     }
     header {
       margin-bottom: 40px;
       position: relative;
+      background-attachment: fixed;
+      background-size: cover;
     }
     section {
       margin-bottom: 40px;
       padding-bottom: 20px;
       position: relative;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeIn 0.8s ease forwards;
+      animation-delay: calc(var(--section-index) * 0.2s);
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: scale(1); }
     }
     section:not(:last-of-type)::after {
       content: '';
@@ -68,6 +99,7 @@
     }
     footer {
       padding-top: 20px;
+      position: relative;
     }
     h1 {
       font-size: 70px;
@@ -76,6 +108,7 @@
       -webkit-text-fill-color: transparent;
       margin: 0;
       line-height: 1;
+      text-shadow: 0 0 10px rgba(3, 102, 214, 0.3);
     }
     h2 {
       font-size: 24px;
@@ -83,20 +116,31 @@
       margin-bottom: 16px;
       position: relative;
       display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    h2:hover {
+      transform: rotateX(10deg) rotateY(10deg);
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
     h2::after {
       content: '';
       position: absolute;
       width: 0;
       height: 2px;
-      background-color: #0366d6;
+      background: linear-gradient(to right, #0366d6, #28a745);
       bottom: -4px;
       left: 50%;
       transform: translateX(-50%);
       transition: width 0.3s ease;
+      box-shadow: 0 0 5px #0366d6;
+      animation: glow 2s ease infinite;
     }
     h2:hover::after {
       width: 50%;
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px #0366d6; }
+      50% { box-shadow: 0 0 15px #0366d6; }
     }
     p, li, span {
       font-size: 16px;
@@ -135,6 +179,13 @@
       border-radius: 8px;
       margin: 10px 0;
       animation: float 3s ease-in-out infinite;
+      border: 2px solid transparent;
+      background: linear-gradient(45deg, #0366d6, #28a745) border-box;
+      box-shadow: 0 0 10px rgba(3, 102, 214, 0.3);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: rotate(2deg);
     }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -145,13 +196,17 @@
       margin-right: 8px;
       width: 20px;
       text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      padding: 6px;
+      transition: all 0.3s ease;
     }
     i:hover {
-      animation: pulse 0.6s ease infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(3, 102, 214, 0.5);
+      background: rgba(255, 255, 255, 0.4);
     }
     .fa-check-circle {
       color: #28a745;
@@ -172,9 +227,63 @@
       0%, 100% { opacity: 0.3; transform: translateY(0); }
       50% { opacity: 1; transform: translateY(5px); }
     }
+    .footer-quote {
+      display: inline-block;
+      animation: float 4s ease-in-out infinite;
+      position: relative;
+    }
+    .footer-quote::before {
+      content: '✨';
+      position: absolute;
+      top: -10px;
+      left: -20px;
+      font-size: 20px;
+      animation: sparkle 3s ease infinite;
+    }
+    .footer-quote::after {
+      content: '✨';
+      position: absolute;
+      bottom: -10px;
+      right: -20px;
+      font-size: 20px;
+      animation: sparkle 3s ease infinite 1s;
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(3, 102, 214, 0.3);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: background 0.3s ease;
+    }
+    .custom-cursor::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: #0366d6;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    section:hover .custom-cursor {
+      background: rgba(40, 167, 69, 0.3);
+    }
+    section:hover .custom-cursor::after {
+      background: #28a745;
+    }
   </style>
 </head>
 <body>
+  <div class="particles" id="particles"></div>
+  <div class="custom-cursor" id="cursor"></div>
   <div class="container">
     <!-- Hero Section -->
     <header>
@@ -187,7 +296,7 @@
     </header>
 
     <!-- About Section -->
-    <section>
+    <section style="--section-index: 1;">
       <h2><i class="fa-solid fa-user"></i>About Me</h2>
       <p>
         Certified Cloud Professional with a decade of IT experience, including years of specialized experience in AWS. I’m passionate about crafting cloud-native architectures, securing DevOps pipelines, and building serverless solutions. From automating morning coffee alerts with AWS IoT & Lambda to designing scalable cloud workflows, I strive to empower innovation through secure, elegant automation.
@@ -195,7 +304,7 @@
     </section>
 
     <!-- Interests Section -->
-    <section>
+    <section style="--section-index: 2;">
       <h2><i class="fa-solid fa-lightbulb"></i>Interests</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-cloud fa-fw"></i>Cloud-native architecture and automation</li>
@@ -207,7 +316,7 @@
     </section>
 
     <!-- Currently Exploring Section -->
-    <section>
+    <section style="--section-index: 3;">
       <h2><i class="fa-solid fa-compass"></i>Currently Exploring</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-robot fa-fw"></i>Generative AI in cloud workflows</li>
@@ -218,7 +327,7 @@
     </section>
 
     <!-- Tech Stack Section -->
-    <section>
+    <section style="--section-index: 4;">
       <h2><i class="fa-solid fa-tools"></i>Expertise & Tech Stack</h2>
       <div class="grid grid-3">
         <div>
@@ -249,7 +358,7 @@
     </section>
 
     <!-- Community Involvement Section -->
-    <section>
+    <section style="--section-index: 5;">
       <h2><i class="fa-solid fa-users"></i>Community Involvement</h2>
       <ul>
         <li>
@@ -272,7 +381,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section>
+    <section style="--section-index: 6;">
       <h2><i class="fa-solid fa-certificate"></i>Certifications</h2>
       <ul class="grid grid-2">
         <li><i class="fa-solid fa-check-circle fa-fw"></i>AWS Certified Solutions Architect – Associate</li>
@@ -283,7 +392,7 @@
     </section>
 
     <!-- GitHub Stats Section -->
-    <section>
+    <section style="--section-index: 7;">
       <h2><i class="fa-solid fa-chart-line"></i>GitHub Stats</h2>
       <div>
         <img src="https://github-readme-stats.vercel.app/api?username=pxkundu&show_icons=true&theme=gruvbox" alt="Partha's GitHub Stats">
@@ -293,10 +402,68 @@
 
     <!-- Footer -->
     <footer>
-      <p class="italic">“Empowering innovation through secure automation and cloud-native transformation.”</p>
+      <p class="italic footer-quote">“Empowering innovation through secure automation and cloud-native transformation.”</p>
       <p>© 2025 Partha Sarathi Kundu. All rights reserved.</p>
     </footer>
   </div>
+  <script>
+    // Particle Animation
+    const canvas = document.createElement('canvas');
+    document.getElementById('particles').appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particlesArray = [];
+    const numberOfParticles = 50;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(3, 102, 214, 0.5)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  </script>
 </body>
 </html>
 </body>
