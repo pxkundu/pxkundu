@@ -1,6 +1,6 @@
 # 👋 Hello World, I'm Partha Sarathi Kundu! (@pxkundu)
 
-🚀 **DevOps Lead | Cloud Engineer | DevSecOps Advocate | AWS Ninja**  
+🚀 **DevOps Lead | Cloud Engineer | DevSecOps Advocate**  
 
 🔗 [GitHub](https://github.com/pxkundu) | 🏅 [Credly Certifications](https://www.credly.com/users/partha-sarathi-kundu.94e53ea1)
 
