@@ -1,0 +1,15 @@
+{
+  "name": "pxkundu-github-pages",
+  "version": "1.0.0",
+  "description": "Personal GitHub Pages site for Partha Sarathi Kundu",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css",
+    "watch:css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  },
+  "author": "Partha Sarathi Kundu",
+  "license": "MIT"
+}

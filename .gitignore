@@ -8,7 +8,7 @@ vendor/ Gemfile.lock
 
 # Node.js dependencies
 
-node_modules/ package-lock.json
+node_modules/
 
 # Tailwind CSS generated output (keep assets/css/output.css in version control for GitHub Pages)
 
