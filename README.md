@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/pxkundu/pxkundu/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/pxkundu/pxkundu/actions/workflows/pages/pages-build-deployment)
+
 # 👋 Hello World, I'm Partha Sarathi Kundu! (@pxkundu)
 
 🚀 **DevOps Lead | Cloud Engineer | DevSecOps Advocate**  
