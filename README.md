@@ -2,11 +2,16 @@
 
 # 👋 Hello World, I'm Partha Sarathi Kundu! (@pxkundu)
 
-🚀 **DevOps Lead | Cloud Engineer | DevSecOps Advocate**  
+**Lead DevSecOps Engineer - Agentic AI, Cloud & Data Platform Solutions Strategist**  
 
 🔗 [GitHub](https://github.com/pxkundu) | 🏅 [Credly Certifications](https://www.credly.com/users/partha-sarathi-kundu.94e53ea1)
 
 ---
+I work as a DevSecOps Engineer with a robust background in Agentic AI, Data and Cloud Platform solutions design, security testing, cloud computing, and infrastructure automation. 
+
+With proven expertise in enhancing development performance and delivering scalable solutions, I am looking for new opportunities to work with cutting edge AIML workload and DevSecOps projects.
+
+If you're seeking a dedicated and innovative professional to join your team, I'd love to connect and explore how I can contribute to your success.
 
 ## 👀 I’m interested in:
 - ☁️ Cloud-native architecture and automation
@@ -38,21 +43,13 @@
 
 ---
 
-## ⚡ Fun Fact:
-I automate **everything**... even my morning coffee alerts ☕ with **AWS IoT & Lambda** 😄  
-Also: I love turning complex cloud workflows into scalable, secure, and elegant blueprints.
-
----
-
 # 🧠 Expertise & Tech Stack
 
 ### ☁️ Cloud Platforms
 ![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazon-aws&logoColor=white)
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white)
 
-- **AWS Certified Professional** with 5+ years of deep experience
-- Lambda, S3, API Gateway, Cognito, CloudFormation, CDK, Glue, Redshift, SageMaker, EKS, Fargate, IAM, KMS
-- Azure DevOps, AKS, Azure Data Factory, CosmosDB
+- **AWS Certified Professional** with 10+ years of deep experience
 
 ### 🔧 DevOps & IaC
 - **IaC**: Terraform, AWS CDK, CloudFormation  
@@ -82,15 +79,21 @@ Also: I love turning complex cloud workflows into scalable, secure, and elegant 
 
 ## 🌟 Community Involvement
 
+### ⚙️ AI-ML Development – PYPI.ORG (2020)
+Develop tools for The Python Package Index (PyPI) which is a repository of software for the Python programming language.  
+[🔗 Recent AI Agentic Development](https://pypi.org/user/pxkundu/)
+
 ### 📣 AWS Community Builder – Serverless (2020)
 Recognized for sharing knowledge through workshops, blogs, and hands-on content.  
-[🔗 AWS Community Profile](https://www.credly.com/users/partha-sarathi-kundu.94e53ea1)
+[🔗 AWS Community Builder Profile](https://builder.aws.com/community/@kundu007)
 
 ### 👨‍🏫 Founder & Lead – AWS User Group Wichita (2023)
+[🔗 AWS User Group Wichita, KS, USA](https://awsugwichita.org/)
 Built and nurtured a thriving community of AWS enthusiasts.  
 Led local events, webinars, and study jams.
 
 ### 🤖 UIPath Community Organizer – Denver (2024)
+[🔗 UiPath Community Denver, USA](https://community.uipath.com/denver/)
 Driving RPA adoption and community growth through open meetups and technical events.
 
 ### 💻 GitHub Open Source Contributor
